@@ -5,7 +5,8 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "description": "BLK Design System Angular: Free Angular Design System For Bootstrap 4 and Angular",
+    "build-save": "ng build --optimization --base-href=\"https://dhakemayuri.github.io/\"",
+    "description": "This is built as a birthday gift",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
@@ -56,7 +57,7 @@
     "blk design system",
     "blk design system angular"
   ],
-  "author": "Creative Tim <hello@creative-tim.com> (https://www.creative-tim.com/)",
+  "author": "Parth Patil",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/creativetimofficial/blk-design-system-angular/issues"

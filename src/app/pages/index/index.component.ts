@@ -47,4 +47,17 @@ export class IndexComponent implements OnInit, OnDestroy {
     var body = document.getElementsByTagName("body")[0];
     body.classList.remove("index-page");
   }
+
+  audiotoggle(){
+    let audio:any = document.getElementById("background_music");
+    let icon = document.getElementById("music_toggle_icon");
+    if (audio.paused){
+      audio.play();
+      icon.className = "fa fa-volume-up";
+    }
+    else{
+      audio.pause();
+      icon.className = "fa fa-play";
+    }
+  }
 }
