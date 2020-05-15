@@ -1,4 +1,5 @@
 .card-register {
+  background: $card-bg;
   overflow: hidden;
   text-align: left;
   z-index: 2;
@@ -42,11 +43,10 @@
 
     .card-title {
       position: relative;
-      font-size: 5em;
-      font-weight: 900;
+      font-size: 3em;
+      font-weight: 400;
       color: $black;
-      text-transform: lowercase;
-      margin-left: -5px;
+      margin-left: 10px;
       z-index: 1;
     }
   }
@@ -54,7 +54,7 @@
   .card-img {
     position: absolute;
     left: 0;
-    top: -15%;
+    top: -25%;
     width: 70%;
   }
 

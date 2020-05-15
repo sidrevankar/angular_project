@@ -157,7 +157,7 @@
 @include media-breakpoint-down(xs) {
   .card.card-coin {
     margin-top: 80px;
-    background: #022b69d7;
+    background: $card-bg;
   }
 }
 
