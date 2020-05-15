@@ -1,0 +1,23 @@
+<div id="message" class="card card-coin card-plain" [@growin]="currentState ? 'default' : 'collaspe'">
+    <div class="card-header">
+        <img class="img-center
+            img-fluid rounded-circle" src="{{ image_url }}" (click)="changemessage()" />
+        <h3 class="title"> {{ name }} </h3>
+    </div>
+    <div class="card-body">
+        {{ message }}
+        <div class="msgcontainer">
+            <div class="row">
+                <div class="col flex"><span>
+                        <i class="tim-icons icon-minimal-left fa-medium" (click)="changemessage(false)"></i>
+                    </span></div>
+                <div class="col"><span>
+                        <button class="btn btn-info bin-round">View all</button>
+                    </span></div>
+                <div class="col flex"><span class="fright">
+                        <i class="tim-icons icon-minimal-right fa-medium" (click)="changemessage()"></i>
+                    </span></div>
+            </div>
+        </div>
+    </div>
+</div>

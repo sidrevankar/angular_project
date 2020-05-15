@@ -1,5 +1,4 @@
 .card {
-  background: $card-black-background;
   border: 0;
   position: relative;
   width: 100%;
@@ -15,7 +14,11 @@
   }
 
   .card-body {
+    text-align: center;
     padding: 15px;
+    font-size: medium;
+    padding-top: 0;
+    color: rgba($white, 0.6);
 
     &.table-full-width {
       padding-left: 0;
@@ -52,6 +55,12 @@
       color: $dark-gray;
       margin-bottom: 5px;
       font-weight: 300;
+    }
+
+    .title{
+      margin-top: 5px;
+      margin-bottom: 5px;
+      text-align: center;
     }
   }
 
@@ -148,6 +157,7 @@
 @include media-breakpoint-down(xs) {
   .card.card-coin {
     margin-top: 80px;
+    background: #022b69d7;
   }
 }
 

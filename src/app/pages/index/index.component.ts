@@ -3,7 +3,8 @@ import noUiSlider from "nouislider";
 
 @Component({
   selector: "app-index",
-  templateUrl: "index.component.html"
+  templateUrl: "index.component.html",
+  styleUrls: ['./index.component.scss']
 })
 export class IndexComponent implements OnInit, OnDestroy {
   isCollapsed = true;
@@ -53,11 +54,11 @@ export class IndexComponent implements OnInit, OnDestroy {
     let icon = document.getElementById("music_toggle_icon");
     if (audio.paused){
       audio.play();
-      icon.className = "fa fa-volume-up";
+      icon.className = "fa fa-volume-up fa-2x";
     }
     else{
       audio.pause();
-      icon.className = "fa fa-play";
+      icon.className = "fa fa-play fa-2x";
     }
   }
 }
