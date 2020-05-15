@@ -22,6 +22,7 @@ import { ProfilepageComponent } from "./examples/profilepage/profilepage.compone
 import { RegisterpageComponent } from "./examples/registerpage/registerpage.component";
 import { LandingpageComponent } from "./examples/landingpage/landingpage.component";
 import { MessagecardComponent } from './messagecard/messagecard.component';
+import { AudioPageComponent } from './audiopage/audiopage.component';
 
 @NgModule({
   imports: [
@@ -47,7 +48,8 @@ import { MessagecardComponent } from './messagecard/messagecard.component';
     ProfilepageComponent,
     RegisterpageComponent,
     MessagecardComponent,
-    LandingpageComponent
+    LandingpageComponent,
+    AudioPageComponent
   ],
   exports: [
     IndexComponent,
