@@ -22,34 +22,49 @@
 
                                 <h4 class="card-title">Guess Name</h4>
                             </div>
-                            <div class="card-body">
+                            <div class="card-body" [@slipin]="currentState ? 'default': 'collasped'">
                                 <div class="row">
-                                    <div class="col"><span>
+                                    <div class="col">
                                         <audio src="{{ audio_url }}" controls style="width: 100%;"></audio>
-                                    </span></div>
+                                    </div>
                                 </div>
                                 <div class="answer">
                                     <div class="row">
-                                        <div class="col"><span id="answer1" (click)="checkAnswer(1)" class="badge badge-pill badge-info fill">
-                                            {{ name1 }}
-                                        </span></div>
+                                        <div class="col"><span id="answer1" (click)="checkAnswer()"
+                                                class="badge badge-pill badge-info fill">
+                                                {{ name1 }}
+                                            </span></div>
                                     </div>
                                     <div class="row">
-                                        <div class="col"><span id="answer2" (click)="checkAnswer(2)" class="badge badge-pill badge-info fill">
-                                            {{ name2 }}
-                                        </span></div>
+                                        <div class="col"><span id="answer2" (click)="checkAnswer()"
+                                                class="badge badge-pill badge-info fill">
+                                                {{ name2 }}
+                                            </span></div>
                                     </div>
                                     <div class="row">
-                                        <div class="col"><span id="answer3" (click)="checkAnswer(3)" class="badge badge-pill badge-info fill">
-                                            {{ name3 }}
-                                        </span></div>
+                                        <div class="col"><span id="answer3" (click)="checkAnswer()"
+                                                class="badge badge-pill badge-info fill">
+                                                {{ name3 }}
+                                            </span></div>
                                     </div>
                                 </div>
                             </div>
                             <div class="card-footer">
-                                <a class="btn btn-danger btn-round btn-lg" href="javascript:void(0)">
-                                    View all
-                                </a>
+                                <div class="msgcontainer">
+                                    <div class="row">
+                                        <div class="col flex"><span>
+                                                <i class="tim-icons icon-minimal-left fa-medium"
+                                                    (click)="checkAnswer(false)"></i>
+                                            </span></div>
+                                        <div class="col"><span>
+                                                <button class="btn btn-info bin-round">View all</button>
+                                            </span></div>
+                                        <div class="col flex"><span class="fright">
+                                                <i class="tim-icons icon-minimal-right fa-medium"
+                                                    (click)="checkAnswer()"></i>
+                                            </span></div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>

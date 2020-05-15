@@ -1,3 +1,4 @@
+import { trigger, state, style, transition, animate, group, query, keyframes, stagger } from '@angular/animations';
 import { Component, OnInit, OnDestroy, HostListener } from '@angular/core';
 
 @Component({
@@ -5,6 +6,26 @@ import { Component, OnInit, OnDestroy, HostListener } from '@angular/core';
   templateUrl: './audiopage.component.html',
   styleUrls: [
     './audiopage.component.scss',
+  ],
+  animations:[
+    trigger('slipin', [
+      transition('* <=> *', [
+        group([
+          query('audio', stagger('100ms', [
+            animate(800, keyframes([
+              style({ opacity: 0, offset: 0.5, transform: 'translateY(-20px)' }),
+              style({ offset: 0.95 }),
+            ]))
+          ])),
+          query('span', stagger('100ms', [
+            animate(800, keyframes([
+              style({ opacity: 0, offset: 0.5, transform: 'translateY(-100px)' }),
+              style({ offset: 0.95 }),
+            ]))
+          ]))
+        ])
+      ])
+    ]),
   ]
 })
 export class AudioPageComponent implements OnInit, OnDestroy {
@@ -20,10 +41,8 @@ export class AudioPageComponent implements OnInit, OnDestroy {
   name1: string;
   name2: string;
   name3: string;
-  index1: number;
-  index2: number;
-  index3: number;
   currentState: boolean;
+  name_index= [-1, -1, -1];
 
   audioMessages = [
     [
@@ -138,22 +157,25 @@ export class AudioPageComponent implements OnInit, OnDestroy {
     body.classList.remove("register-page");
   }
 
-  checkAnswer(answer: number){
+  checkAnswer(direction=true){
     let answer_boxes = [
       document.getElementById("answer1"),
       document.getElementById("answer2"),
       document.getElementById("answer3")
     ]
     for (let i = 0; i < 3; i++) {
-      if (i == this.index){
+      if (this.name_index[i] == this.index){
         answer_boxes[i].classList.add("correct");
       }
       else{
         answer_boxes[i].classList.add("wrong");
       }
     }
-    this.selectRandomMessage();
-    setTimeout(() => {
+    setTimeout((pointer=this) => {
+      pointer.selectRandomMessage(direction, pointer);
+    }, 1400);
+    setTimeout((pointer=this) => {
+      pointer.currentState = !pointer.currentState;
       for (let i = 0; i < 3; i++) {
           answer_boxes[i].classList.remove("correct");
           answer_boxes[i].classList.remove("wrong");
@@ -161,21 +183,21 @@ export class AudioPageComponent implements OnInit, OnDestroy {
     }, 1000);
   }
 
-  selectRandomMessage(direction=true){
-    console.log(this);
-    this.index = direction ? this.index + 1 : this.index - 1;
-    if (this.index >= this.audioMessages.length) this.index = 0;
-    if (this.index < 0) this.index = this.audioMessages.length - 1;
+  selectRandomMessage(direction=true, pointer=this){
+    // console.log(this);
+    pointer.index = direction ? pointer.index + 1 : pointer.index - 1;
+    if (pointer.index >= pointer.audioMessages.length) pointer.index = 0;
+    if (pointer.index < 0) pointer.index = pointer.audioMessages.length - 1;
 
-    let taken = [this.index];
+    let taken = [pointer.index];
     let random = [-1, -1, -1];
     let loop_index = 0;
-    random[Math.floor(Math.random() * 3)] = this.index;
+    random[Math.floor(Math.random() * 3)] = pointer.index;
     let loop_stop = 0;
 
     while(loop_index < 3 && loop_stop < 100){
       loop_stop++;
-      let rand_index = Math.floor(Math.random() * this.audioMessages.length);
+      let rand_index = Math.floor(Math.random() * pointer.audioMessages.length);
       // console.log(loop_index, rand_index, taken, random);
       if (random[loop_index] >= 0) {
         loop_index++;
@@ -196,11 +218,9 @@ export class AudioPageComponent implements OnInit, OnDestroy {
       random[loop_index] = rand_index;
       loop_index++;
     }
-    this.index1 = random[0];
-    this.index2 = random[1];
-    this.index3 = random[2];
-    this.name1 = this.audioMessages[this.index1][0];
-    this.name2 = this.audioMessages[this.index2][0];
-    this.name3 = this.audioMessages[this.index3][0];
+    pointer.name_index = random;
+    pointer.name1 = pointer.audioMessages[pointer.name_index[0]][0];
+    pointer.name2 = pointer.audioMessages[pointer.name_index[1]][0];
+    pointer.name3 = pointer.audioMessages[pointer.name_index[2]][0];
   }
 }

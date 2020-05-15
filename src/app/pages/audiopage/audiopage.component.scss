@@ -25,3 +25,23 @@
         }
     }
 }
+
+.msgcontainer{
+    padding-top: 2em;
+    width: 100%;
+
+    div{
+        span{
+            align-self: center;
+            &.fright{
+                margin-left: auto;
+                margin-right: 0;
+            }
+        }
+
+        &.flex{
+            display: flex;
+        }
+    }
+
+}
