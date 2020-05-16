@@ -8,14 +8,12 @@ import { ProfilepageComponent } from "./pages/examples/profilepage/profilepage.c
 import { RegisterpageComponent } from "./pages/examples/registerpage/registerpage.component";
 import { LandingpageComponent } from "./pages/examples/landingpage/landingpage.component";
 import { AudioPageComponent } from './pages/audiopage/audiopage.component';
+import { GalleryComponent } from './pages/gallery/gallery.component';
 
 const routes: Routes = [
   { path: "", component: IndexComponent },
-  // { path: "home", component: IndexComponent },
-  { path: "profile", component: ProfilepageComponent },
   { path: "audio_msgs", component: AudioPageComponent },
-  { path: "register", component: RegisterpageComponent },
-  { path: "landing", component: LandingpageComponent }
+  { path: "gallery", component: GalleryComponent },
 ];
 
 @NgModule({

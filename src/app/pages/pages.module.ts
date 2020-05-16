@@ -26,6 +26,7 @@ import { MessagecardComponent } from './messagecard/messagecard.component';
 import { AudioPageComponent } from './audiopage/audiopage.component';
 import { DataProviderService } from './data-provider.service';
 import { FooterComponent } from './footer/footer.component';
+import { GalleryComponent } from './gallery/gallery.component';
 
 @NgModule({
   imports: [
@@ -54,7 +55,8 @@ import { FooterComponent } from './footer/footer.component';
     MessagecardComponent,
     LandingpageComponent,
     AudioPageComponent,
-    FooterComponent
+    FooterComponent,
+    GalleryComponent
   ],
   exports: [
     IndexComponent,
