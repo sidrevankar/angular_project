@@ -8,11 +8,14 @@ import { Data } from '@angular/router';
 })
 export class DataProviderService {
 
+  dataObservable;
+
   constructor(private http: HttpClient) {
+    this.dataObservable = this.http.get<Data[]>("assets/data.json");
   }
 
 
   getTextMessages(): Observable<Data[]>{
-    return this.http.get<Data[]>("assets/data.json");
+    return this.dataObservable;
   }
 }

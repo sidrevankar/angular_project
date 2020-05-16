@@ -1,31 +1,60 @@
 [{
-    "name": "Parth",
-    "message": "This is a random cool message",
-    "image_url": "assets/img/parth.jpg",
-    "headphones": true
-},
-{
     "name": "Parth Patil",
     "message": "Hey this is cool message for you",
-    "image_url": "assets/img/parth.jpg"
+    "image_url": "assets/img/parth.jpg",
+    "headphones": true,
+    "audio_urls": ["assets/audio/parth.mpeg"]
 },
 {
     "name": "Nahush kumbhar",
     "message": "Hey this is not so cool message for you",
-    "image_url": "assets/img/nahush.jpg"
+    "image_url": "assets/img/nahush.jpg",
+    "headphones": false,
+    "audio_urls": ["assets/audio/bsckground_sound.mp3"]
 },
 {
     "name": "Madhura Pawar",
-    "message": "Hello frendzzz chia pilo",
-    "image_url": "assets/img/madhura.jpg"
+    "message": "Chal lockdown samplavr kahuya piyuya Ani Nashik la jauya.....🤸‍♀️#panipuri#pept#blahblah#veerdiwedding#harbour04#nightupvan#nightin#preeti#cake💩#khepsa#carmelcustard#sharwarma#momos#parsik#parsikchafalooda#coolcamp#manishaground#activa#marines#tujhbhadavrchaghar#yourass#urulti#BT#DevDD#4moreshots#4moreshotsplease#bewakoofshopping#viviana#korum#neartodeathexperience#6.16#shareauto#6am#bbc#holi#beingdressed#shoppingforeachother#singingdespacito#mangoat3am#wagnor#backdoor#foreversafedriverirony#videocalls#dance#maggie#boobs#carvana#bhajankirtan#301°#diwalipahataniratr#railwaypravas#jumpingfromcarshade#beingwithurcats#3amrainsurhangover#sleepover#deeptalks#pooptalks#boobtalks#dhakeanitichkadhihizhopna",
+    "image_url": "assets/img/madhura.jpg",
+    "headphones": false,
+    "audio_urls": ["assets/audio/madhura.ogg"]
 },
 {
     "name": "Amruta Takle",
     "message": "Yo bhai me gareeb ahe",
-    "image_url": "assets/img/amruta.jpg"
+    "image_url": "assets/img/amruta.jpg",
+    "headphones": true,
+    "audio_urls": ["assets/audio/amruta.mpeg"]
 },
 {
     "name": "Adhirath Salvi",
     "message": "Hello guys, sab theek hai",
-    "image_url": "assets/img/adhirat.jpg"
-}]
+    "image_url": "assets/img/adhirat.jpg",
+    "headphones": true,
+    "audio_urls": ["assets/audio/adhirath.mp4"]
+},
+{
+    "name": "Pranita Achrekar",
+    "message": "Hey dhaku wish you many many happy returns of the day......... Thank you so much for making my junior clg life so happy and memorable thanks for each and every joke  ....the way you make us laugh ....tuze faltu brups ....apli scooty vali ride aple bunks each and every memory is so special Karan aapn parat tashi masti nhi karu shaknar......I love you❤️",
+    "image_url": "assets/img/pranita.jpg",
+    "headphones": false,
+    "audio_urls": [
+        "assets/audio/pranita.ogg",
+        "assets/audio/pranita2.ogg"
+    ]
+},
+{
+    "name": "Rushikesh Dalvi",
+    "message": "Corona samplavr kutha basavnar ahias 🎉🥃🍻",
+    "image_url": "assets/img/rushikesh.jpeg",
+    "headphones": false,
+    "audio_urls": ["assets/audio/rushikesh.ogg"]
+},
+{
+    "name": "Siddharth Bhanusali",
+    "message": "Bhai apun busy hai message nhi likhega",
+    "image_url": "assets/img/siddharth.jpg",
+    "headphones": false,
+    "audio_urls": ["assets/audio/siddharth.ogg"]
+}
+]

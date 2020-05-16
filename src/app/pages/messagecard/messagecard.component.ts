@@ -33,8 +33,8 @@ export class MessagecardComponent implements OnInit {
   index: number;
   messages: MessageCard[] = [];
 
-  constructor(data: DataProviderService) {
-   data.getTextMessages()
+  constructor(dataserver: DataProviderService) {
+   dataserver.getTextMessages()
       .subscribe(data => {
         for (let i = 0; i < data.length; i++) {
           let msgcard = <MessageCard>{};
