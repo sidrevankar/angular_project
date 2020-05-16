@@ -9,11 +9,13 @@ import { RegisterpageComponent } from "./pages/examples/registerpage/registerpag
 import { LandingpageComponent } from "./pages/examples/landingpage/landingpage.component";
 import { AudioPageComponent } from './pages/audiopage/audiopage.component';
 import { GalleryComponent } from './pages/gallery/gallery.component';
+import { AllMessageViewComponent } from './pages/all-message-view/all-message-view.component';
 
 const routes: Routes = [
   { path: "", component: IndexComponent },
   { path: "audio_msgs", component: AudioPageComponent },
   { path: "gallery", component: GalleryComponent },
+  { path: "viewall", component: AllMessageViewComponent },
 ];
 
 @NgModule({

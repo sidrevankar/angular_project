@@ -1,0 +1,35 @@
+<nav class="navbar navbar-expand-lg fixed-top navbar-transparent" color-on-scroll="100" id="navbar-top">
+    <div class="container">
+        <div class="navbar-translate">
+            <a class="navbar-brand" [routerLink]="['']" placement="bottom" tooltip="Created by Parth Patil">
+                <span> Mayuri Dhake </span>
+            </a>
+        </div>
+    </div>
+</nav>
+
+<div class="superpad">
+    <div class="padded" *ngFor='let person of data'>
+        <div id="message" class="card card-coin card-plain">
+            <div class="card-header">
+                <img class="img-center
+                                img-fluid rounded-circle" src="{{ person.image_url }}" (click)="changemessage()" />
+                <h3 class="title"> {{ person.name }} </h3>
+            </div>
+            <div class="card-body">
+                <div id="msg-text">
+                    {{ person.message }}
+                </div>
+                <div class="msgcontainer" *ngFor='let audio_url of person.audio_urls'>
+                    <div class="row">
+                        <div class="col flex">
+                            <audio src="{{ audio_url }}" controls></audio>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<app-footer></app-footer>
