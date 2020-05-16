@@ -25,6 +25,7 @@ import { LandingpageComponent } from "./examples/landingpage/landingpage.compone
 import { MessagecardComponent } from './messagecard/messagecard.component';
 import { AudioPageComponent } from './audiopage/audiopage.component';
 import { DataProviderService } from './data-provider.service';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   imports: [
@@ -52,7 +53,8 @@ import { DataProviderService } from './data-provider.service';
     RegisterpageComponent,
     MessagecardComponent,
     LandingpageComponent,
-    AudioPageComponent
+    AudioPageComponent,
+    FooterComponent
   ],
   exports: [
     IndexComponent,
