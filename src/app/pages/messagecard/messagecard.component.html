@@ -1,11 +1,11 @@
 <div id="message" class="card card-coin card-plain" [@growin]="currentState ? 'default' : 'collaspe'">
     <div class="card-header">
         <img class="img-center
-            img-fluid rounded-circle" src="{{ image_url }}" (click)="changemessage()" />
-        <h3 class="title"> {{ name }} </h3>
+            img-fluid rounded-circle" src="{{ msgcard.image_url }}" (click)="changemessage()" />
+        <h3 class="title"> {{ msgcard.name }} </h3>
     </div>
     <div class="card-body">
-        {{ message }}
+        {{ msgcard.message }}
         <div class="msgcontainer">
             <div class="row">
                 <div class="col flex"><span>

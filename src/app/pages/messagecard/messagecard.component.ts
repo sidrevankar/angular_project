@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { trigger, transition, animate, style, query, group, state, sequence, keyframes } from '@angular/animations';
+import { DataProviderService } from '../data-provider.service';
+import { MessageCard } from './messagecard';
 
 @Component({
   selector: 'messagecard',
@@ -19,54 +21,36 @@ import { trigger, transition, animate, style, query, group, state, sequence, key
             style({ offset: 0.9 }),
           ]))
         ])
-        // animate("1s, 1s"),
-        // sequence([
-        // ])
       ])
     ]),
   ]
 })
 export class MessagecardComponent implements OnInit {
 
-  name: string;
-  message: string;
-  image_url: string;
+
+  msgcard: MessageCard;
   currentState: boolean;
   index: number;
-  messages = [
-    [
-      'Parth Patil',
-      'Hey this is cool message for you',
-      'assets/img/parth.jpg'
-    ],
-    [
-      'Nahush kumbhar',
-      'Hey this is not so cool message for you',
-      'assets/img/nahush.jpg'
-    ],
-    [
-      'Madhura Pawar',
-      'Hello frendzzz chia pilo',
-      'assets/img/madhura.jpg'
-    ],
-    // [
-    //   'Ruchira Yerapale',
-    //   'Me ek madarchod mulgi ahe',
-    //   'assets/img/ruchira.jpg'
-    // ],
-    [
-      'Amruta Takle',
-      'Yo bhai me gareeb ahe',
-      'assets/img/amruta.jpg'
-    ],
-    [
-      'Adhirath Salvi',
-      'Hello guys, sab theek hai',
-      'assets/img/adhirat.jpg'
-    ],
-  ]
+  messages: MessageCard[] = [];
 
-  constructor() {
+  constructor(data: DataProviderService) {
+   data.getTextMessages()
+      .subscribe(data => {
+        for (let i = 0; i < data.length; i++) {
+          let msgcard = <MessageCard>{};
+          msgcard.name = data[i].name;
+          msgcard.message = data[i].message;
+          msgcard.image_url = data[i].image_url;
+          this.messages.push(msgcard);
+        }
+        this.initialize();
+      })
+  }
+
+  ngOnInit(): void {
+  }
+
+  initialize(){
     this.index = 0;
     for (var i = this.messages.length - 1; i > 0; i--) {
       var j = Math.floor(Math.random() * (i + 1));
@@ -74,13 +58,8 @@ export class MessagecardComponent implements OnInit {
       this.messages[i] = this.messages[j];
       this.messages[j] = temp;
     }
-    this.name = this.messages[this.index][0];
-    this.message = this.messages[this.index][1];
-    this.image_url = this.messages[this.index][2];
+    this.msgcard = this.messages[this.index];
     this.currentState = true;
-  }
-
-  ngOnInit(): void {
   }
 
   changemessage(direction=true) {
@@ -89,9 +68,7 @@ export class MessagecardComponent implements OnInit {
     if (this.index >= this.messages.length ) this.index = 0;
     if (this.index < 0) this.index = this.messages.length - 1;
     setTimeout(() => {
-      this.name = this.messages[this.index][0];
-      this.message = this.messages[this.index][1];
-      this.image_url = this.messages[this.index][2];
+      this.msgcard = this.messages[this.index];
     }, 800);
   }
 

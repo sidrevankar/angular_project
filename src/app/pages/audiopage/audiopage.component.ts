@@ -11,7 +11,7 @@ import { Component, OnInit, OnDestroy, HostListener } from '@angular/core';
     trigger('slipin', [
       transition('* <=> *', [
         group([
-          query('audio', stagger('100ms', [
+          query('audio, #headphone', stagger('100ms', [
             animate(800, keyframes([
               style({ opacity: 0, offset: 0.5, transform: 'translateY(-20px)' }),
               style({ offset: 0.95 }),
@@ -34,6 +34,8 @@ export class AudioPageComponent implements OnInit, OnDestroy {
   focus;
   focus1;
   focus2;
+  correct_audio;
+  wrong_audio;
 
   index: number;
   correct_index: number;
@@ -42,32 +44,54 @@ export class AudioPageComponent implements OnInit, OnDestroy {
   name2: string;
   name3: string;
   currentState: boolean;
+  headphoneFlag: boolean;
   name_index= [-1, -1, -1];
 
   audioMessages = [
     [
       'Parth Patil',
-      'assets/audio/background_sound.mp3'
+      'assets/audio/parth.mpeg',
+      'true'
     ],
     [
       'Madhura Pawar',
-      'assets/audio/background_sound.mp3'
+      'assets/audio/madhura.ogg',
+      'false'
     ],
     [
       'Amruta Takle',
-      'assets/audio/background_sound.mp3'
+      'assets/audio/amruta.mpeg',
+      'true'
     ],
     [
       'Adhirath Salvi',
-      'assets/audio/background_sound.mp3'
+      'assets/audio/adhirath.mp4',
+      'true'
     ],
+    // [
+    //   'Nahush Kumbhar',
+    //   'assets/audio/background_sound.mp3',
+    //   'false'
+    // ],
     [
-      'Nahush Kumbhar',
-      'assets/audio/background_sound.mp3'
+      'Pranita Achrekar',
+      'assets/audio/pranita.ogg',
+      'false'
     ],
     [
       'Pranita Achrekar',
-      'assets/audio/background_sound.mp3'
+      'assets/audio/pranita2.ogg',
+      'false'
+    ],
+    [
+      'Siddharth Bhanusali',
+      'assets/audio/siddharth.ogg',
+      'false'
+    ],
+    [
+      'Rushikesh Dalvi',
+      'assets/audio/rushikesh.ogg',
+      'false'
     ],
   ]
 
@@ -81,6 +105,8 @@ export class AudioPageComponent implements OnInit, OnDestroy {
     }
     this.selectRandomMessage();
     this.currentState = true;
+    this.correct_audio = new Audio("assets/audio/correct.mp3");
+    this.wrong_audio = new Audio("assets/audio/wrong.mp3");
    }
   @HostListener("document:mousemove", ["$event"])
   onMouseMove(e) {
@@ -157,20 +183,30 @@ export class AudioPageComponent implements OnInit, OnDestroy {
     body.classList.remove("register-page");
   }
 
-  checkAnswer(direction=true){
+  checkAnswer(direction=true, index=-1){
     let answer_boxes = [
       document.getElementById("answer1"),
       document.getElementById("answer2"),
       document.getElementById("answer3")
     ]
+
+    let correct_played = false;
     for (let i = 0; i < 3; i++) {
       if (this.name_index[i] == this.index){
         answer_boxes[i].classList.add("correct");
+        if(i == index - 1){
+          correct_played = true;
+          this.correct_audio.play();
+        }
       }
       else{
         answer_boxes[i].classList.add("wrong");
       }
     }
+    if (!correct_played){
+      this.wrong_audio.play();
+    }
+
     setTimeout((pointer=this) => {
       pointer.selectRandomMessage(direction, pointer);
     }, 1400);
@@ -190,6 +226,7 @@ export class AudioPageComponent implements OnInit, OnDestroy {
     if (pointer.index < 0) pointer.index = pointer.audioMessages.length - 1;
 
     let taken = [pointer.index];
+    let taken_names = [pointer.audioMessages[pointer.index][0]]
     let random = [-1, -1, -1];
     let loop_index = 0;
     random[Math.floor(Math.random() * 3)] = pointer.index;
@@ -207,7 +244,7 @@ export class AudioPageComponent implements OnInit, OnDestroy {
       let skip = false;
       for (let j = 0; j < taken.length; j++) {
         // console.log("in loop", (taken[j] == rand_index));
-        if (taken[j] == rand_index){
+        if (taken[j] == rand_index || taken_names[j] == pointer.audioMessages[rand_index][0]){
           skip = true;
           break;
         }
@@ -215,6 +252,7 @@ export class AudioPageComponent implements OnInit, OnDestroy {
       if (skip) continue;
 
       taken.push(rand_index);
+      taken_names.push(pointer.audioMessages[rand_index][0]);
       random[loop_index] = rand_index;
       loop_index++;
     }
@@ -222,5 +260,7 @@ export class AudioPageComponent implements OnInit, OnDestroy {
     pointer.name1 = pointer.audioMessages[pointer.name_index[0]][0];
     pointer.name2 = pointer.audioMessages[pointer.name_index[1]][0];
     pointer.name3 = pointer.audioMessages[pointer.name_index[2]][0];
+    pointer.audio_url = pointer.audioMessages[pointer.index][1];
+    pointer.headphoneFlag = pointer.audioMessages[pointer.index][2] == 'true';
   }
 }

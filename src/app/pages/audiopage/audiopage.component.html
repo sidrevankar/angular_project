@@ -28,21 +28,26 @@
                                         <audio src="{{ audio_url }}" controls style="width: 100%;"></audio>
                                     </div>
                                 </div>
+                                <div class="row" *ngIf="headphoneFlag">
+                                    <div class="col"><span id="headphone">
+                                        <i class="fa fa-headphones" style="color: white;" aria-hidden="true"></i> Use Headphones
+                                    </span></div>
+                                </div>
                                 <div class="answer">
                                     <div class="row">
-                                        <div class="col"><span id="answer1" (click)="checkAnswer()"
+                                        <div class="col"><span id="answer1" (click)="checkAnswer(true, 1)"
                                                 class="badge badge-pill badge-info fill">
                                                 {{ name1 }}
                                             </span></div>
                                     </div>
                                     <div class="row">
-                                        <div class="col"><span id="answer2" (click)="checkAnswer()"
+                                        <div class="col"><span id="answer2" (click)="checkAnswer(true, 2)"
                                                 class="badge badge-pill badge-info fill">
                                                 {{ name2 }}
                                             </span></div>
                                     </div>
                                     <div class="row">
-                                        <div class="col"><span id="answer3" (click)="checkAnswer()"
+                                        <div class="col"><span id="answer3" (click)="checkAnswer(true, 3)"
                                                 class="badge badge-pill badge-info fill">
                                                 {{ name3 }}
                                             </span></div>

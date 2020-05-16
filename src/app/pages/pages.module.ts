@@ -1,3 +1,4 @@
+import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
@@ -23,6 +24,7 @@ import { RegisterpageComponent } from "./examples/registerpage/registerpage.comp
 import { LandingpageComponent } from "./examples/landingpage/landingpage.component";
 import { MessagecardComponent } from './messagecard/messagecard.component';
 import { AudioPageComponent } from './audiopage/audiopage.component';
+import { DataProviderService } from './data-provider.service';
 
 @NgModule({
   imports: [
@@ -30,6 +32,7 @@ import { AudioPageComponent } from './audiopage/audiopage.component';
     BrowserModule,
     FormsModule,
     RouterModule,
+    HttpClientModule,
     BsDropdownModule.forRoot(),
     ProgressbarModule.forRoot(),
     TooltipModule.forRoot(),
@@ -57,6 +60,6 @@ import { AudioPageComponent } from './audiopage/audiopage.component';
     RegisterpageComponent,
     LandingpageComponent
   ],
-  providers: []
+  providers: [DataProviderService]
 })
 export class PagesModule {}

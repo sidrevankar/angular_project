@@ -1,0 +1,31 @@
+[{
+    "name": "Parth",
+    "message": "This is a random cool message",
+    "image_url": "assets/img/parth.jpg",
+    "headphones": true
+},
+{
+    "name": "Parth Patil",
+    "message": "Hey this is cool message for you",
+    "image_url": "assets/img/parth.jpg"
+},
+{
+    "name": "Nahush kumbhar",
+    "message": "Hey this is not so cool message for you",
+    "image_url": "assets/img/nahush.jpg"
+},
+{
+    "name": "Madhura Pawar",
+    "message": "Hello frendzzz chia pilo",
+    "image_url": "assets/img/madhura.jpg"
+},
+{
+    "name": "Amruta Takle",
+    "message": "Yo bhai me gareeb ahe",
+    "image_url": "assets/img/amruta.jpg"
+},
+{
+    "name": "Adhirath Salvi",
+    "message": "Hello guys, sab theek hai",
+    "image_url": "assets/img/adhirat.jpg"
+}]
