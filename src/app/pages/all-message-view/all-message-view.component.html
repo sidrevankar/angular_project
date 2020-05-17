@@ -11,22 +11,22 @@
 <div class="superpad">
     <div class="padded" *ngFor='let person of data'>
         <div id="message" class="card card-coin card-plain">
-            <div class="card-header">
+            <div class="card-header" style="margin-top: 0;">
                 <img class="img-center
-                                img-fluid rounded-circle" src="{{ person.image_url }}" (click)="changemessage()" />
+                                    img-fluid rounded-circle" src="{{ person.image_url }}" (click)="changemessage()" />
                 <h3 class="title"> {{ person.name }} </h3>
             </div>
             <div class="card-body">
                 <div id="msg-text">
                     {{ person.message }}
                 </div>
-                <div class="msgcontainer" *ngFor='let audio_url of person.audio_urls'>
+                <!-- <div class="msgcontainer" *ngFor='let audio_url of person.audio_urls'>
                     <div class="row">
-                        <div class="col flex">
+                        <div class="col">
                             <audio src="{{ audio_url }}" controls></audio>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>
