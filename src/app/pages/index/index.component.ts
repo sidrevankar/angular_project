@@ -22,6 +22,9 @@ export class IndexComponent implements OnInit, OnDestroy {
     var body = document.getElementsByTagName("body")[0];
     body.classList.add("index-page");
 
+    let audio: any = document.getElementById("background_music");
+    audio.play();
+
     var slider = document.getElementById("sliderRegular");
 
     noUiSlider.create(slider, {
