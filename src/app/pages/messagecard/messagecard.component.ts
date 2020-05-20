@@ -37,6 +37,7 @@ export class MessagecardComponent implements OnInit {
    dataserver.getTextMessages()
       .subscribe(data => {
         for (let i = 0; i < data.length; i++) {
+          if (data[i].name == "Parth Patil") continue;
           let msgcard = <MessageCard>{};
           msgcard.name = data[i].name;
           msgcard.message = data[i].message;
