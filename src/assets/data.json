@@ -50,6 +50,15 @@
     ]
 },
 {
+    "name": "Parth Patil",
+    "message": "Hey this is a cool message for you",
+    "image_url": "assets/img/parth.jpg",
+    "headphones": true,
+    "audio_urls": [
+        "assets/audio/parth.mpeg"
+    ]
+},
+{
     "name": "Rushikesh Dalvi",
     "message": "Corona samplavr kutha basavnar ahias 🎉🥃🍻",
     "image_url": "assets/img/rushikesh.jpeg",
@@ -78,11 +87,12 @@
     "audio_urls": ["assets/audio/mihika.ogg"]
 },
 {
-    "name": "Parth Patil",
-    "message": "Hey this is a cool message for you",
-    "image_url": "assets/img/parth.jpg",
-    "headphones": true,
+    "name": "Pranali Sawant",
+    "message": "Happiest Birthdayyyyyy Hatti 🐘. There's much too talk about you ... but I will only say this words to sum it up .... 😫Burp Queen 💃🏻The Best Dancer 🦦laughing budda 🐒bigfoodie............. And the girl who needs to be taken an appointment before meeting....huh. Btw thankyou for all those fun movie date at your place and that pant😛....haha wish we could bring back our childhood 😇♥️ yaa finally enjoyyy your quarantine bday & meet soon bitch😚",
+    "image_url": "assets/img/pranali.jpg",
+    "headphones": false,
     "audio_urls": [
-        "assets/audio/parth.mpeg"
+        "assets/audio/pranali.ogg"
     ]
-}]
+}
+]
